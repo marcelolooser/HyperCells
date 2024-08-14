@@ -84,7 +84,7 @@ PackageDoc := rec(
 
 Dependencies := rec(
   GAP := ">= 4.11",
-  NeededOtherPackages := [ ],
+  NeededOtherPackages := [ [ "kbmag", "1.5.10" ] ],
   SuggestedOtherPackages := [ ],
   ExternalConditions := [ ],
 ),
