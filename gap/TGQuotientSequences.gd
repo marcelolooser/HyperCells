@@ -65,8 +65,8 @@ DeclareGlobalFunction( "IsTGQuotientSequence" );
 DeclareCategory( "IsTGQuotientSequencesAdjacencyMatrixObj", IsObject );
 
 #! @Description
-#!   Construct the adjacency matrix for the triangle group <A>tg</A> ($\Delta^+$), given as ProperTriangleGroup object (see
-#!   2.1), specified by the quotient relators given as elements of <A>tg</A>.
+#!   Construct the adjacency matrix for the triangle group <A>tg</A> ($\Delta^+$), given as `ProperTriangleGroup` object (see
+#!   <Ref Sect="Section_TriangleGroups"/>), specified by the quotient relators given as elements of <A>tg</A>.
 #!
 #!   The option `boundByGenus`, an upper bound, can be passed, which takes a positive integer below 102, limiting the number of 
 #!   quotients considered. If a positive integer below 102 is provided, triangle group quotients with genus smaller than 
@@ -114,7 +114,7 @@ DeclareOperation( "MirrorSymmetries", [ IsTGQuotientSequencesAdjacencyMatrixObj 
 DeclareOperation( "IsSparse", [ IsTGQuotientSequencesAdjacencyMatrixObj ] );
 
 #! @Description
-#!   returns the adjacency matrix of dimension `BoundByGenus(<A>tgQSAdjMat</A>)xBoundByGenus(<A>tgQSAdjMat</A>)`.  
+#!   returns the adjacency matrix of dimension `BoundByGenus(<A>tgQSAdjMat</A>)` x `BoundByGenus(<A>tgQSAdjMat</A>)`.  
 #!   If `IsSparse(<A>tgQSAdjMat</A>)` is true, the adjacency matrix will be sparsely represented `[ [ [ rowIdx, colIdx ], entry ], ... ]`, 
 #!   where `entry` is the corresponding matrix entry at position `rowIdx` and `colIdx`, which represent indices of the matrix
 #!   rows and columns, respectively.
@@ -124,7 +124,7 @@ DeclareOperation( "AdjacencyMatrix", [ IsTGQuotientSequencesAdjacencyMatrixObj ]
 
 #! @Description
 #!   returns the adjacency matrix of the normal subgroup relation between consecutive translation groups of corresponding quotients,
-#!   with dimensions `BoundByGenus(<A>tgQSAdjMat</A>)xBoundByGenus(<A>tgQSAdjMat</A>)`.  
+#!   with dimensions `BoundByGenus(<A>tgQSAdjMat</A>)` x `BoundByGenus(<A>tgQSAdjMat</A>)`.  
 #!   If `IsSparse(<A>tgQSAdjMat</A>)` is true, the adjacency matrix will be sparsely represented `[ [ [ rowIdx, colIdx ], entry ], ... ]`,
 #!   where `entry` is the corresponding matrix entry at position `rowIdx` and `colIdx`, which represent indices of the matrix
 #!   rows and columns, respectively.
@@ -230,14 +230,14 @@ DeclareGlobalFunction( "ImportTGQuotientSequencesAdjacencyMatrix" );
 #! @Description
 #!   or from the file at the path given by the string <A>path</A>.
 #! @Arguments path
-#! @Returns tgQSAdjMat as `TGQuotientSequencesAdjacencyMatrix`
+#! @Returns adjacency matrix as `TGQuotientSequencesAdjacencyMatrix`
 #! (see <Ref Sect='Section_TGQuotientSequencesAdjacencyMatrix'/>).
 DeclareGlobalFunction( "ImportTGQuotientSequencesAdjacencyMatrixFromFile" );
 #!
 #! @Description
 #!   Alterantively, the adjacency matrix can be imported from the string <A>string</A>.
 #! @Arguments string
-#! @Returns tgQSAdjMat as `TGQuotientSequencesAdjacencyMatrix`
+#! @Returns adjacency matrix as `TGQuotientSequencesAdjacencyMatrix`
 #! (see <Ref Sect='Section_TGQuotientSequencesAdjacencyMatrix'/>).
 DeclareGlobalFunction( "ImportTGQuotientSequencesAdjacencyMatrixFromString" );
 #!
