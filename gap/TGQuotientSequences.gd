@@ -66,7 +66,7 @@ DeclareCategory( "IsTGQuotientSequencesAdjacencyMatrixObj", IsObject );
 
 #! @Description
 #!   Construct the adjacency matrix for the triangle group <A>tg</A> ($\Delta^+$), given as `ProperTriangleGroup` object (see
-#!   <Ref Sect="Section_TriangleGroups"/>), specified by the quotient relators given as elements of <A>tg</A>.
+#!   <Ref Sect="Section_TriangleGroups"/>), for available quotients from the library, i.e., Conder’s list.
 #!
 #!   The option `boundByGenus`, an upper bound, can be passed, which takes a positive integer below 102, limiting the number of 
 #!   quotients considered. If a positive integer below 102 is provided, triangle group quotients with genus smaller than 
@@ -75,6 +75,9 @@ DeclareCategory( "IsTGQuotientSequencesAdjacencyMatrixObj", IsObject );
 #!   If sparse is true the adjacency matrix is of the form `[ [ [ rowIdx, colIdx ], entry ], ... ]`, where `entry`
 #!   is the corresponding matrix entry at position `rowIdx` and `colIdx`, which represent indices of the matrix 
 #!   rows and columns, respectively. The default is false.
+#!
+#!   This function saves constrcuted translation groups in cache, which can be flushed
+#!   by calling <Ref Func="FlushCaches" BookName="ref"/>.
 #! @Arguments tg
 #! @Returns adjacency matrix as `TGQuotientSequencesAdjacencyMatrix` object.
 DeclareGlobalFunction( "TGQuotientSequencesAdjacencyMatrix" );
