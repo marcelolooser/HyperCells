@@ -26,7 +26,9 @@
 DeclareGlobalFunction( "IsTGQuotientSequence" );
 
 
+
 #! @Section Constructing Sequences of Triangle-Group Quotients
+#! @SectionLabel TGQuotientSequencesAdjacencyMatrix
 #!
 #!   Sequences of quotient groups can efficiently be identified through the construction of adjacency
 #!   matrices that capture the normal subgroup relation between pairwise distinct translation groups 
@@ -77,7 +79,7 @@ DeclareCategory( "IsTGQuotientSequencesAdjacencyMatrixObj", IsObject );
 #!   rows and columns, respectively. The default is false.
 #!
 #!   This function saves constrcuted translation groups in cache, which can be flushed
-#!   by calling <Ref Func="FlushCaches" BookName="ref"/>.
+#!   by calling `FlushCaches` (see section Mutability and Copying in the <URL Text="GAP Reference Manual ">https://docs.gap-system.org/doc/ref/chap0_mj.html</URL>).
 #! @Arguments tg
 #! @Returns adjacency matrix as `TGQuotientSequencesAdjacencyMatrix` object.
 DeclareGlobalFunction( "TGQuotientSequencesAdjacencyMatrix" );
