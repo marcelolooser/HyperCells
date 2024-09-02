@@ -4,12 +4,12 @@
 # - Internal.g
 # - kbmag package 1.5.10+
 
-# Constructs rewriting systems (rws) via Knuth-Bendix completion alogorithm
+# Constructs rewriting systems (rws) via Knuth-Bendix completion algorithm
 # and stores it in cache.
 rwsFunc@ := MemoizePosIntFunction(function(ID)
 	local G, ORkbrws, maxlen, kbrws, mhom, mon, catch, lenRules, lmax;
 	
-	# Get needed input though options:
+	# Get needed input through options:
 	# --------------------------------
 	lmax := ValueOption("lmax");
 	G := ValueOption("group");
@@ -41,7 +41,7 @@ rwsFunc@ := MemoizePosIntFunction(function(ID)
        	# Construct (probably non-confluent) rws:
 	# ---------------------------------------
 
-	# occuring errors are "catched" (assuming SimplifyWord@ uses BreakOnError := false when entered) 
+	# occuring errors are "caught" (assuming SimplifyWord@ uses BreakOnError := false when entered) 
        	catch := CALL_WITH_CATCH(KnuthBendix, [kbrws])[1];; # alternative: use ErrorCount
 	
 	# ---------------------------------------------
@@ -51,17 +51,17 @@ rwsFunc@ := MemoizePosIntFunction(function(ID)
 	if not catch then
 		lenRules := Length(Rules(kbrws));
 
-		# error due the above defined options occured
-		# (or unexpected error occured) TODO: catch unexpected error separately
+		# error due the above defined options occurred
+		# (or unexpected error occurred) TODO: catch unexpected error separately
 		if Length(Rules(kbrws)[lenRules, 1]) + Length(Rules(kbrws)[lenRules, 2]) > maxlen[1] + maxlen[2] then
 			Print("#WARNING: simplification was unsuccessful; non-simplified words will be used.\n");
 			Print(StringFormatted("Try setting simplify to a value above {}.", lmax + 1));
 		
-		# error due to missing configurations in the package kbmag occured 
+		# error due to missing configurations in the package kbmag occurred 
 		# (or (highly unlikely) possibly due to exceeding 65535 number of generators)
 		else
 			Print("#WARNING: maximal number of genartors have been exceeded; non-simplified words will be used.\n");
-			Print("Please follow the instructions in chapter ?? in order to use simplify for groups with more than 127 generators.");
+			Print("Please follow the instructions in the chapter Introduction, section Simplify extension (optional) in the HyperCells reference manual.");
 		fi;
 		return catch;
 	else
