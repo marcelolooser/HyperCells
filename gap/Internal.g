@@ -11,9 +11,31 @@ ListProduct@ := function(list)
     return p;
 end;
 
+# Helper function for SimplifyWord@,  keep track of multiple
+# function calling if the same groups are used in SimplifyWord@
+# in order to make sure that the potential warning message is printed
+# only once per considered ID.
+SimplifyMethodMessenger@ := MemoizePosIntFunction(function(ID)
+	local simplifyMethod;
+	
+    	simplifyMethod := ValueOption("simplifyMethod");
+    	if not simplifyMethod = fail then
+		if not simplifyMethod = "BruteForce" then
+	    		Print(StringFormatted("#WARNING: It seems that the package kbmag is not available and thus the specified method {} is not installed.", simplifyMethod));
+			Print("The brute force method will be used.");
+			return 1;
+		else
+			return 0;
+		fi; 
+	else
+		return 0;
+	fi;
+	
+end );
+
 # Brute-force simplification of a word w in group G with a maximal word length of lmax.
 SimplifyWord@ := function(G, w, lmax)
-    local lw, gens, l, tuple, w2;
+    local lw, gens, l, tuple, w2, ID, simplifyMethod;
 
     if IsOne(w) then
         return One(G);
@@ -39,6 +61,21 @@ SimplifyWord@ := function(G, w, lmax)
             fi;
         od;
     od;
+
+    # --------------------------------
+    # Check for option simplifyMethod:
+    # -------------------------------- 
+    # (option available in Internal_kbmagExtension.g)
+
+    # Construct ID:
+    # -------------
+    # for memoize function in SimplifyMethodMessenger@, (string to positive integer)
+    ID := AbsInt(CrcString(JoinStringsWithSeparator([String(gens), String(RelatorsOfFpGroup(G))],"")));
+
+    # Check for user input:
+    # ---------------------
+    simplifyMethod := ValueOption("simplifyMethod");
+    SimplifyMethodMessenger@(ID : simplifyMethod := simplifyMethod);
 
     return w;
 end;
