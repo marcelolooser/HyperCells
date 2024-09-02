@@ -21,5 +21,5 @@ ReadPackage( "HyperCells", "gap/TGQuotientSequences.gi");
 #
 
 if IsPackageLoaded("kbmag", ">=1.5.10") then
-	ReadPackage( "HyperCells", "gap/InternalExtensions.g");
+	ReadPackage( "HyperCells", "gap/Internal_kbmagExtension.g");
 fi;
