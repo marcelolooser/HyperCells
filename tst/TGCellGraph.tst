@@ -338,6 +338,7 @@ g4^-1 ], [ (y*x)^4*y, (y*x)^4*y, 23, 4, 1, g4 ] ] )
 gap> cg = cg2;
 true
 #@else
+gap> FlushCaches();
 gap> cg := TGCellGraph(tg, q, 3 : simplify := 5, simplifyMethod := "KnuthBendix");
 #WARNING: It seems that the package kbmag is not available and thus the specified method KnuthBendix is not installed.
 The brute force method will be used.
@@ -1279,6 +1280,7 @@ y*x*y*x^-1, 121, 1, 0, g1 ], [ x*y^-1*x^-1*y^-1*(x*y)^4, x*y^-1*x^-1*y^-1*(x*y\
 gap> cg = cg2;
 true
 #@else
+gap> FlushCaches();
 gap> cg := TGCellGraph(tg, q, 3 : simplify := 5, simplifyMethod := "KnuthBendix");
 #WARNING: It seems that the package kbmag is not available and thus the specified method KnuthBendix is not installed.
 The brute force method will be used.
