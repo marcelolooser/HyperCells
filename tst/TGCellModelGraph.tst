@@ -1,12 +1,10 @@
 gap> START_TEST("HyperCells: TGCellModelGraph.tst");
 
-
 # Note: the conditional arguments "#@if, #@elif, #@else" in GAP 4.11
 #       are sensitive to empty lines and comments. Make sure that comments come  before
 #       statements "#@elif, #@else" or that they are separated by an input "gap>". Also,
 #	make sure that after "#@fi" is an empty line followed by a comment. 
 #       See also fixed issue https://github.com/gap-system/gap/issues/4635.
-
 
 # Triangle group (2,8,8)
 gap> sign := [ 2, 8, 8 ];;
@@ -41,6 +39,7 @@ TGCellModelGraph( TGCell( ProperTriangleGroup(2, 8, 8), [ x^2, x*y*z, x*z*y, y\
  6 ] ], g2 ], [ 1, 1, [ 1, [ [ 1, 4 ], 3, 7 ] ], g3 ] ], faces = [ [ [ 1, -1 ]\
 , [ 2, -1 ], [ 4, 1 ], [ 3, -1 ], [ 1, 1 ], [ 2, 1 ], [ 4, -1 ], [ 3, 1 ] ] ] )
 #@else
+gap> FlushCaches();
 gap> tmg := TessellationModelGraph(cg, false : simplify := 5, simplifyMethod := "KnuthBendix");
 #WARNING: It seems that the package kbmag is not available and thus the specified method KnuthBendix is not installed.
 The brute force method will be used.
@@ -49,8 +48,6 @@ TGCellModelGraph( TGCell( ProperTriangleGroup(2, 8, 8), [ x^2, x*y*z, x*z*y, y^3
 , 7 ] ], g4*g2^-1*g1 ] ], faces = [ [ [ 1, 1 ], [ 3, 1 ], [ 4, 1 ], [ 2, 1 ], [ 1, -1 ], [ 3, -1 ], [ 4, -1 ], [ 2, -1 ] ] ] )
 gap> FlushCaches();
 gap> dtmg := TessellationModelGraph(cg, true : simplify := 5, simplifyMethod := "KnuthBendix");
-#WARNING: It seems that the package kbmag is not available and thus the specified method KnuthBendix is not installed.
-The brute force method will be used.
 TGCellModelGraph( TGCell( ProperTriangleGroup(2, 8, 8), [ x^2, x*y*z, x*z*y, y^3*z^-1 ] ), center = 3, type = [ "TESS", [ 8, 8 ], [ "VEF", [ [ 3 ], [ 1 ], [ 2 ] ] ] ], vertices = [ \
 [ 3, 1 ] ], edges = [ [ 1, 1, [ 1, [ [ 1, 1 ], 1, 5 ] ], g1 ], [ 1, 1, [ 1, [ [ 1, 2 ], 4, 8 ] ], g4 ], [ 1, 1, [ 1, [ [ 1, 3 ], 2, 6 ] ], g2 ], [ 1, 1, [ 1, [ [ 1, 4 ], 3, 7 ] ], g3 ] ], faces = [ [ [ 1,\
  -1 ], [ 2, -1 ], [ 4, 1 ], [ 3, -1 ], [ 1, 1 ], [ 2, 1 ], [ 4, -1 ], [ 3, 1 ] ] ] )
@@ -156,9 +153,8 @@ ces = [ [ [ 1, 1 ], [ 4, 1 ], [ 9, 1 ], [ 18, 1 ], [ 23, 1 ], [ 13, 1 ], [ 6, \
  [ 12, -1 ], [ 16, -1 ], [ 19, -1 ], [ 20, -1 ], [ 8, -1 ], [ 10, -1 ], [ 24, \
 -1 ], [ 14, -1 ] ] ] )
 #@else
+gap> FlushCaches();
 gap> tmg := TessellationModelGraph(cg, false : simplify := 5, simplifyMethod := "KnuthBendix");
-#WARNING: It seems that the package kbmag is not available and thus the specified method KnuthBendix is not installed.
-The brute force method will be used.
 TGCellModelGraph( TGCell( ProperTriangleGroup(2, 3, 8), [ x^2, y^3, x*y*z, z*y\
 *x*z*y^-1*z^-1*x*z ] ), center = 3, type = [ "TESS", [ 8, 3 ], [ "VEF", [ [ 2 \
 ], [ 1 ], [ 3 ] ] ] ], vertices = [ [ 2, 1 ], [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ \
@@ -411,9 +407,50 @@ gap> CellEdges(tmg);
   [ 11, 6, [ 2, [ 6, 24, 14 ] ], g2^-1*g3 ], [ 15, 13, [ 2, [ 6, 14, 12 ] ], g1*g2^-1 ] ]
 #@else
 gap> tmg := TessellationModelGraph(cg, false : simplify := 5);;
+gap> FlushCaches();
 gap> AddOrientedNNNEdgesToTessellationModelGraph(tmg : simplify := 5, simplifyMethod := "KnuthBendix");;
 #WARNING: It seems that the package kbmag is not available and thus the specified method KnuthBendix is not installed.
 The brute force method will be used.
+gap> CellEdges(tmg);
+[ [ 1, 2, [ 1, [ [ 1, 1 ], 1, 9 ] ], <identity ...> ], [ 3, 1, [ 1, [ [ 1, 2 ], 8, 16 ] ], <identity ...> ]
+    , [ 1, 4, [ 1, [ [ 1, 3 ], 17, 32 ] ], <identity ...> ],
+  [ 2, 5, [ 1, [ [ 1, 4 ], 2, 10 ] ], <identity ...> ],
+  [ 2, 6, [ 1, [ [ 1, 5 ], 18, 25 ] ], <identity ...> ],
+  [ 7, 3, [ 1, [ [ 1, 6 ], 7, 15 ] ], <identity ...> ],
+  [ 3, 8, [ 1, [ [ 1, 7 ], 24, 31 ] ], <identity ...> ], [ 4, 9, [ 1, [ [ 1, 8 ], 33, 45 ] ], g1 ],
+  [ 5, 10, [ 1, [ [ 1, 9 ], 3, 11 ] ], <identity ...> ], [ 11, 4, [ 1, [ [ 1, 10 ], 36, 48 ] ], g4 ],
+  [ 5, 12, [ 1, [ [ 1, 11 ], 19, 26 ] ], <identity ...> ], [ 13, 6, [ 1, [ [ 1, 12 ], 37, 41 ] ], g1^-1 ],
+  [ 14, 7, [ 1, [ [ 1, 13 ], 6, 14 ] ], <identity ...> ], [ 6, 15, [ 1, [ [ 1, 14 ], 34, 46 ] ], g2 ],
+  [ 7, 15, [ 1, [ [ 1, 15 ], 23, 30 ] ], <identity ...> ], [ 8, 13, [ 1, [ [ 1, 16 ], 40, 44 ] ], g4^-1 ],
+  [ 14, 9, [ 1, [ [ 1, 17 ], 22, 29 ] ], <identity ...> ],
+  [ 10, 16, [ 1, [ [ 1, 18 ], 4, 12 ] ], <identity ...> ], [ 12, 8, [ 1, [ [ 1, 19 ], 35, 47 ] ], g3 ],
+  [ 9, 12, [ 1, [ [ 1, 20 ], 38, 42 ] ], g2^-1 ], [ 10, 11, [ 1, [ [ 1, 21 ], 20, 27 ] ], <identity ...> ],
+  [ 16, 13, [ 1, [ [ 1, 22 ], 21, 28 ] ], <identity ...> ],
+  [ 16, 14, [ 1, [ [ 1, 23 ], 5, 13 ] ], <identity ...> ], [ 15, 11, [ 1, [ [ 1, 24 ], 39, 43 ] ], g3^-1 ],
+  [ 1, 5, [ 2, [ 1, 1, 4 ] ], <identity ...> ], [ 2, 10, [ 2, [ 1, 4, 9 ] ], <identity ...> ],
+  [ 5, 16, [ 2, [ 1, 9, 18 ] ], <identity ...> ], [ 10, 14, [ 2, [ 1, 18, 23 ] ], <identity ...> ],
+  [ 16, 7, [ 2, [ 1, 23, 13 ] ], <identity ...> ], [ 14, 3, [ 2, [ 1, 13, 6 ] ], <identity ...> ],
+  [ 7, 1, [ 2, [ 1, 6, 2 ] ], <identity ...> ], [ 3, 2, [ 2, [ 1, 2, 1 ] ], <identity ...> ],
+  [ 2, 4, [ 2, [ 2, 1, 3 ] ], <identity ...> ], [ 1, 9, [ 2, [ 2, 3, 8 ] ], g1 ],
+  [ 4, 14, [ 2, [ 2, 8, 17 ] ], g1 ], [ 9, 16, [ 2, [ 2, 17, 23 ] ], <identity ...> ],
+  [ 14, 13, [ 2, [ 2, 23, 22 ] ], <identity ...> ], [ 16, 6, [ 2, [ 2, 22, 12 ] ], g1^-1 ],
+  [ 13, 2, [ 2, [ 2, 12, 5 ] ], g1^-1 ], [ 6, 1, [ 2, [ 2, 5, 1 ] ], <identity ...> ],
+  [ 16, 11, [ 2, [ 3, 18, 21 ] ], <identity ...> ], [ 10, 4, [ 2, [ 3, 21, 10 ] ], g4 ],
+  [ 11, 1, [ 2, [ 3, 10, 3 ] ], g4 ], [ 4, 3, [ 2, [ 3, 3, 2 ] ], <identity ...> ],
+  [ 1, 8, [ 2, [ 3, 2, 7 ] ], <identity ...> ], [ 3, 13, [ 2, [ 3, 7, 16 ] ], g4^-1 ],
+  [ 8, 16, [ 2, [ 3, 16, 22 ] ], g4^-1 ], [ 13, 10, [ 2, [ 3, 22, 18 ] ], <identity ...> ],
+  [ 5, 6, [ 2, [ 4, 4, 5 ] ], <identity ...> ], [ 2, 15, [ 2, [ 4, 5, 14 ] ], g2 ],
+  [ 6, 7, [ 2, [ 4, 14, 15 ] ], g2 ], [ 15, 14, [ 2, [ 4, 15, 13 ] ], <identity ...> ],
+  [ 7, 9, [ 2, [ 4, 13, 17 ] ], <identity ...> ], [ 14, 12, [ 2, [ 4, 17, 20 ] ], g2^-1 ],
+  [ 9, 5, [ 2, [ 4, 20, 11 ] ], g2^-1 ], [ 12, 2, [ 2, [ 4, 11, 4 ] ], <identity ...> ],
+  [ 10, 12, [ 2, [ 5, 9, 11 ] ], <identity ...> ], [ 5, 8, [ 2, [ 5, 11, 19 ] ], g3 ],
+  [ 12, 3, [ 2, [ 5, 19, 7 ] ], g3 ], [ 8, 7, [ 2, [ 5, 7, 6 ] ], <identity ...> ],
+  [ 3, 15, [ 2, [ 5, 6, 15 ] ], <identity ...> ], [ 7, 11, [ 2, [ 5, 15, 24 ] ], g3^-1 ],
+  [ 15, 10, [ 2, [ 5, 24, 21 ] ], g3^-1 ], [ 11, 5, [ 2, [ 5, 21, 9 ] ], <identity ...> ],
+  [ 6, 8, [ 2, [ 6, 12, 16 ] ], g4*g1 ], [ 13, 12, [ 2, [ 6, 16, 19 ] ], g3^-1*g4 ],
+  [ 8, 9, [ 2, [ 6, 19, 20 ] ], g2*g3^-1 ], [ 12, 4, [ 2, [ 6, 20, 8 ] ], g1^-1*g2 ],
+  [ 9, 11, [ 2, [ 6, 8, 10 ] ], g4^-1*g1^-1 ], [ 4, 15, [ 2, [ 6, 10, 24 ] ], g3*g4^-1 ],
+  [ 11, 6, [ 2, [ 6, 24, 14 ] ], g2^-1*g3 ], [ 15, 13, [ 2, [ 6, 14, 12 ] ], g1*g2^-1 ] ]
 #@fi
 
 # Kagome
@@ -529,7 +566,8 @@ ity ...> ], [ 15, 24, [ 1, [ [ 2, 15 ], 30, 39 ] ], <identity ...> ], [ 15, 14\
 1 ], [ 43, 1 ], [ 32, -1 ] ], [ [ 18, 1 ], [ 39, 1 ], [ 24, 1 ], [ 36, 1 ], [ \
 27, 1 ], [ 12, 1 ], [ 33, 1 ], [ 45, 1 ] ] ] )
 #@else
-gap> tmg := KagomeModelGraph(cg, false : simplify := 5, simplifyMethod := "KnuthBendix");;
+gap> FlushCaches();
+gap> kmg := KagomeModelGraph(cg : simplify := 5, simplifyMethod := "KnuthBendix");
 #WARNING: It seems that the package kbmag is not available and thus the specified method KnuthBendix is not installed.
 The brute force method will be used.
 TGCellModelGraph( TGCell( ProperTriangleGroup(2, 3, 8), [ x^2, y^3, x*y*z, z*y\
@@ -682,7 +720,6 @@ gap> CellFaces(kmg);
 
 gap> ImportTGCellModelGraphFromString(ExportString(kmg), tg) = kmg;
 true
-
 
 
 gap> sign := [ 2, 4, 6 ];;
@@ -1653,6 +1690,7 @@ g6*g3^-1, g6*g3^-1, 1, 1, 1, 1, g10*g3, g10*g3 ]\n[ [ [ 1, 1 ], [ 3, 1 ], [ 2,\
 [ 170, -1 ], [ 99, -1 ] ], [ [ 102, 1 ], [ 166, 1 ], [ 179, -1 ], [ 132, 1 ], \
 [ 125, 1 ], [ 181, 1 ], [ 191, -1 ], [ 156, -1 ] ], [ [ 159, 1 ], [ 186, 1 ], \
 [ 174, 1 ], [ 129, 1 ], [ 171, 1 ], [ 192, 1 ], [ 183, 1 ], [ 153, 1 ] ] ]"
+
 
 # Dual graphs
 gap> sign := [ 2, 3, 8 ];;
