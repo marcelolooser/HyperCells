@@ -568,8 +568,6 @@ ity ...> ], [ 15, 24, [ 1, [ [ 2, 15 ], 30, 39 ] ], <identity ...> ], [ 15, 14\
 #@else
 gap> FlushCaches();
 gap> kmg := KagomeModelGraph(cg : simplify := 5, simplifyMethod := "KnuthBendix");
-#WARNING: It seems that the package kbmag is not available and thus the specified method KnuthBendix is not installed.
-The brute force method will be used.
 TGCellModelGraph( TGCell( ProperTriangleGroup(2, 3, 8), [ x^2, y^3, x*y*z, z*y\
 *x*z*y^-1*z^-1*x*z ] ), center = 3, type = [ "KAGOME", 8, [ "VEF", [ [ 1 ], [ \
 2 ], [ 2, 3 ] ] ] ], vertices = [ [ 1, 1 ], [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 1,\
