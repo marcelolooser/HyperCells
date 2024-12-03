@@ -1,6 +1,7 @@
 # The GAP package HyperCells
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10782370.svg)](https://doi.org/10.5281/zenodo.10782370)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14264499.svg)](https://doi.org/10.5281/zenodo.14264499)
+
 
 HyperCells is a [GAP](https://www.gap-system.org/) package that allows
 constructing primitive cells and supercells of hyperbolic lattices based on
