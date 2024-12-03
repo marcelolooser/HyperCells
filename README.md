@@ -2,14 +2,12 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10782370.svg)](https://doi.org/10.5281/zenodo.10782370)
 
-**Warning**: Note the potential breaking changes in version 0.9.1-beta if edge tags are
-explicitly referred to. The edge tag format for nearest-neighbor edges constructed using
-`TGCellModelGraph`, `TessellationModelGraph`, and `KagomeModelGraph` has been changed from
-`[ 1, [ gi, s1, s2 ] ]` to `[ 1, [ [ w, gi ], s1, s2 ] ]`.
-
 HyperCells is a [GAP](https://www.gap-system.org/) package that allows
 constructing primitive cells and supercells of hyperbolic lattices based on
 triangle groups and quotients with normal subgroups.
+
+:book: We have a new website with detailed [instructions on the installation](https://www.hypercells.net/contents/Installation/installation.html) process, a [getting-strated guide](https://www.hypercells.net/contents/GettingStarted/getting_started.html) and hands-on [tutorials](https://www.hypercells.net/contents/Tutorials/tutorials.html): https://www.hypercells.net.
+
 An introduction to the underlying concepts can be found in the following preprint
 
 > P. M. Lenggenhager, J. Maciejko, and T. Bzdušek,
@@ -32,11 +30,6 @@ addition to the package itself:
 and the list of quotient groups:
 > M. Conder, *Quotients of triangle groups acting on surfaces of genus 2 to 101*,
   [https://www.math.auckland.ac.nz/~conder/TriangleGroupQuotients101.txt](https://www.math.auckland.ac.nz/~conder/TriangleGroupQuotients101.txt) (2007)
-
-
-A getting-started guide for this and its sister package
-([HyperBloch](https://github.com/HyperCells/HyperBloch)) can be found
-[here](https://patrick-lenggenhager.github.io/software/2024/01/10/HyperGuide.html).
 
 
 Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) on how you can contribute to
@@ -66,6 +59,9 @@ Main developer:\
 Coauthors:\
 &ensp;&ensp;**Joseph Maciejko** (maciejko@ualberta.ca)\
 &ensp;&ensp;**Tomáš Bzdušek** (tomas.bzdusek@uzh.ch)
+
+Code contributers:\
+&ensp;&ensp;**Marcelo Looser** (marcelo.looser@outlook.com)
 
 ## Installation
 
@@ -134,8 +130,6 @@ of the publication mentioned above.
 - `TGCellGraph` objects and symmetric `TGCell` objects cannot be produced for
   cells without mirror symmetries, i.e., for quotients that act "chirally" on
   the surface.
-- Faces of `TGCellGraph` objects have only been tested in the context of
-  `TGTessellationGraph` and `TGKagomeGraph` and might not work in general.
 
 ## HyperBloch package
 
@@ -228,4 +222,4 @@ Under the following terms:
   No additional restrictions - You may not apply legal terms or technological
     measures that legally restrict others from doing anything the license permits.
 
-Copyright 2023 Patrick M. Lenggenhager
+&copy; 2023-2024 Patrick M. Lenggenhager

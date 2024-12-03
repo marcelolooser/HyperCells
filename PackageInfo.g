@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "HyperCells",
 Subtitle := "A GAP package for constructing primitive cells and supercells of hyperbolic lattices",
-Version := "0.9.1-beta",
-Date := "05/03/2024", # dd/mm/yyyy format
+Version := "1.0.0",
+Date := "03/12/2024", # dd/mm/yyyy format
 License := "CC BY-SA 4.0",
 
 Persons := [
