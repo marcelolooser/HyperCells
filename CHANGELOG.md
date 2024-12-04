@@ -8,17 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-12-03
 
 ### Added
-- Add `TGQuotientSequencesStructure` for studying quotients of normal subgroups of the triangle group and their relationships, in particular for constructing sequences of supercels (@marcelolooser).
+- Add `TGQuotientSequencesStructure` for studying quotients of normal subgroups of the triangle group and their relationships, in particular for constructing sequences of supercells (@marcelolooser).
 - Add additional method for simplifying words based on the Knuth-Bendix completion algorithm (@marcelolooser).
 - Add `LiebModelGraph` for constructing models defined of hyperbolic Lieb lattices (@marcelolooser).
 - Add `PGMatrix` and related functionality for constructing matrix representations of point-group actions on momenta (@marcelolooser).
 
 ### Changed
-- Updated references, URLs etc. to reflect transfer of repository to HyperCells organization and new website https://www.hypercells.net.
+- Update references, URLs etc. to reflect transfer of repository to HyperCells organization and new website https://www.hypercells.net.
 
 ### Fixed
 - Fix wrong vertex references in edge specifications.
-- Corrected various typos in the documentation and instructions.
+- Correct various typos in the documentation and instructions.
 
 
 ## [0.9.1-beta] - 2024-03-05

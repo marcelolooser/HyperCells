@@ -9,7 +9,7 @@ triangle groups and quotients with normal subgroups.
 
 :book: We have a new website with detailed [instructions on the installation](https://www.hypercells.net/contents/Installation/installation.html) process, a [getting-started guide](https://www.hypercells.net/contents/GettingStarted/getting_started.html) and hands-on [tutorials](https://www.hypercells.net/contents/Tutorials/tutorials.html): https://www.hypercells.net.
 
-An introduction to the underlying concepts can be found in the following preprint
+An introduction to the underlying concepts can be found in the following publication
 
 > P. M. Lenggenhager, J. Maciejko, and T. Bzdušek,
   *Non-Abelian hyperbolic band theory from supercells*,
